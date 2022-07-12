@@ -21,7 +21,7 @@
                     </tr>
                     <tr>
                         <td><font size="14">'.strtoupper($this->prodi->get_fakultasname_by_prodiname($prodi_list->namaprodi)->namafakultas).'</font></td>
-                    </tr>
+                    </tr> 
                     <tr>
                         <td><font size="14">PROGRAM STUDI '.strtoupper($prodi_list->namaprodi).'</font></td>
                     </tr>
@@ -37,7 +37,7 @@
                                 <th width="55%" align="center"><strong>NAMA</strong></th>
                                 <th width="20%" align="center"><strong>SUKU</strong></th>
                             </tr>';
-                foreach ($this->laporan->skpdf($prodi_list->namaprodi) as $row) 
+                foreach ($this->laporan->skpdf($prodi_list->namaprodi,$this->pengaturan->gettahunakademik()->nilai) as $row) 
                     {
                         $no++;
                         if($no%2){

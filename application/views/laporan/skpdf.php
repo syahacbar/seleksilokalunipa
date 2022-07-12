@@ -52,7 +52,7 @@
                                     <th width="55%" align="center"><strong>NAMA</strong></th>
                                     <th width="20%" align="center"><strong>SUKU</strong></th>
                                 </tr>';
-                    foreach ($this->laporan->skpdf($prodi_list->namaprodi) as $row) 
+                    foreach ($this->laporan->skpdf($prodi_list->namaprodi,$this->pengaturan->gettahunakademik()->nilai) as $row) 
                         {
                             $no++;
                             if($no%2){

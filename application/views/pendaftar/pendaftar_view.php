@@ -598,8 +598,8 @@ function upload_file()
                         <div class="form-group">
                             <label class="col-md-3 text-center">Nilai Verbal</label>
                             <label class="col-md-3 text-center">Nilai Numerik</label>
-                            <label class="col-md-3 text-center">Nilai Inggris</label>
-                            <label class="col-md-3 text-center">Nilai Figural</label>
+                            <label class="col-md-3 text-center">Nilai TPA</label>
+                            <label class="col-md-3 text-center">Nilai TPS</label>
                         
                             <div class="col-md-3">
                                 <input name="nverbal" placeholder="Nilai Verbal" class="form-control" type="number">
@@ -616,6 +616,14 @@ function upload_file()
                             <div class="col-md-3">
                                 <input name="nfigural" placeholder="Nilai Figural" class="form-control" type="number">
                                 <span class="text-danger" id="error_nfigural"></span>
+                            </div>
+                        
+                        </div>
+                       <div class="form-group">
+                            <label class="col-md-12">Tahun Akademik</label>
+                            <div class="col-md-6">
+                                <input name="tahunakademik" id="tahunakademik" placeholder="Tahun Akademik" class="form-control" type="text" readonly>
+                                <span class="text-danger" id="error_tahunakademik"></span>
                             </div>
                         </div>
                         

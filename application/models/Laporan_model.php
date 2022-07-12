@@ -22,12 +22,12 @@ class Laporan_model extends CI_Model {
         return $query->result();
     }
 
-    function skpdf($prodi)
+    function skpdf($prodi,$ta)
     {
         $this->db->select('*');
         $this->db->from('v_penerimaan');
         $this->db->where('namaprodi', $prodi);
-        //$this->db->where('tahunakademik', $this->pengaturan->gettahunakademik()->nilai);
+        $this->db->where('tahunakademik', $ta);
         $query = $this->db->get();
         return $query->result();
     }

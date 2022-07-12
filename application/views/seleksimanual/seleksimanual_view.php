@@ -71,8 +71,8 @@
                     <th style="width: 80;">Jur. SLTA</th>
                     <th style="width: 20;">Nilai Verbal</th>
                     <th style="width: 20;">Nilai Numerik</th>
-                    <th style="width: 20;">Nilai IPA</th>
-                    <th style="width: 20;">Nilai IPS</th>
+                    <th style="width: 20;">Nilai TPA</th>
+                    <th style="width: 20;">Nilai TPS</th>
                     <th style="width: 20;">Nilai <br>Rata-rata</th>
                     <th style="width: 20;">Thn. Lulus</th>
                     <th style="width: 100;">Aksi</th>
@@ -193,7 +193,7 @@ $(document).ready(function() {
             "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
                     var d = new Date();
                     var n = d.getFullYear();
-                    if ( aData[11] <= n-3 )
+                    if ( aData[11] <= n-4 )
                     {
                         $('td', nRow).css('background-color', 'Red');
                     }
