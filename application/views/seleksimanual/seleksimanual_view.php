@@ -44,7 +44,14 @@
                 <td width="10%"><label style="font-size:13px;">Daya Tampung Prodi:</label></td>
                 <td width="1%"></td>
                 <td width="5%"><input type="text" name="dayatampung" class="form-control" readonly="readonly" style="text-align:center;font-weight:bold;"></td>
-                <td width="41%"></td>
+                <td width="2%"></td>
+                <td width="5%"><input type="text" class="form-control" readonly="readonly" style="text-align:center;font-weight:bold; background-color: orange;;" value="TL"></td>
+                <td width="1%"></td>
+                <td width="15%"><label style="font-size:13px;">Tahun Lulus Lebih Dari 4 Tahun</label></td>
+                <td width="2%"></td>
+                <td width="5%"><input type="text" class="form-control" readonly="readonly" style="text-align:center;font-weight:bold; background-color: yellow;" value="TU"></td>
+                <td width="1%"></td>
+                <td width="22%"><label style="font-size:13px;">Tidak Mengikuti Salah Satu Sesi Ujian</label></td>
             </tr>
             <tr>
                 <td width="10%"><label style="font-size:13px;">Pilih Suku :</label></td>
@@ -54,7 +61,10 @@
                 <td width="10%"><label style="font-size:13px;">Sisa Kuota Prodi:</label></td>
                 <td width="1%"></td>
                 <td width="5%"><input type="text" name="sisakuota" class="form-control" readonly="readonly" style="text-align:center;font-weight:bold;"></td>
-                <td width="41%"></td>
+                <td width="2%"></td>
+                <td width="5%"><input type="text" class="form-control" readonly="readonly" style="text-align:center;font-weight:bold; background-color: red; color: white" value="TH"></td>
+                <td width="1%"></td>
+                <td width="15%"><label style="font-size:13px;">Tahun Hadir Ujian Seleksi</label></td>
             </tr>
         </table>
         
@@ -68,13 +78,13 @@
                     <th style="width: 180;">Nama Pendaftar</th>
                     <th style="width: 30;">Pil. Ke</th>
                     <th style="width: 50;">Suku</th>
-                    <th style="width: 80;">Jur. SLTA</th>
                     <th style="width: 20;">Nilai Verbal</th>
                     <th style="width: 20;">Nilai Numerik</th>
                     <th style="width: 20;">Nilai TPA</th>
                     <th style="width: 20;">Nilai TPS</th>
                     <th style="width: 20;">Nilai <br>Rata-rata</th>
                     <th style="width: 20;">Thn. Lulus</th>
+                    <th style="width: 80;">Keterangan</th>
                     <th style="width: 100;">Aksi</th>
                 </tr>
             </thead>
@@ -169,13 +179,13 @@ $(document).ready(function() {
                 className: 'dt-center',
             },
             {
-                targets: 5,
+                targets: 11,
                 width: '80',
                 className: 'dt-center',
             },
             
             {
-                targets: [6,7,8,9,11,12],
+                targets: [5,6,7,8,9,10,12],
                 width: '20',
                 className: 'dt-center',
             },
@@ -193,9 +203,17 @@ $(document).ready(function() {
             "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
                     var d = new Date();
                     var n = d.getFullYear();
-                    if ( aData[11] <= n-4 )
+                    if ( aData[10] <= n-4 )
                     {
-                        $('td', nRow).css('background-color', 'Red');
+                        $('td', nRow).css('background-color', 'Orange');
+                    } else if (aData[11] == 'TH')
+                    {
+                        $('td', nRow).css('background-color', 'red');
+                        $('td', nRow).css('color', 'white');
+                        $('td', nRow).css('font-weight', 'bold');
+                    } else if (aData[11] == 'TU')
+                    {
+                        $('td', nRow).css('background-color', 'Yellow');
                     }
             }
          

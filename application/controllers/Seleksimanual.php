@@ -67,13 +67,13 @@ class Seleksimanual extends MY_Controller {
                 $row[] = $result->namapendaftar;
                 $row[] = $prodipilihan;
                 $row[] = $result->suku;
-                $row[] = $result->jurusanslta;
                 $row[] = $result->nverbal;
                 $row[] = $result->nnumerik;
                 $row[] = $result->ninggris;
                 $row[] = $result->nfigural;
                 $row[] = $result->ratarata;
                 $row[] = $result->tahunlulus;
+                $row[] = $result->keterangan;
             
             //add html for action
             $row[] = '<a class="btn btn-xs btn-info" href="javascript:void(0)" title="Detail" onclick="detail_record('."'".$result->nopendaftar."'".')"><i class="glyphicon glyphicon-search"></i> Detail</a>
