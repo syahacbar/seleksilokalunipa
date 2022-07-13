@@ -64,7 +64,7 @@
                 <td width="2%"></td>
                 <td width="5%"><input type="text" class="form-control" readonly="readonly" style="text-align:center;font-weight:bold; background-color: red; color: white" value="TH"></td>
                 <td width="1%"></td>
-                <td width="15%"><label style="font-size:13px;">Tahun Hadir Ujian Seleksi</label></td>
+                <td width="15%"><label style="font-size:13px;">Tidak Hadir Ujian Seleksi</label></td>
             </tr>
         </table>
         
@@ -206,6 +206,7 @@ $(document).ready(function() {
                     if ( aData[10] <= n-4 )
                     {
                         $('td', nRow).css('background-color', 'Orange');
+                        $('td', 
                     } else if (aData[11] == 'TH')
                     {
                         $('td', nRow).css('background-color', 'red');

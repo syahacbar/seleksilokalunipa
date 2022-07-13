@@ -46,6 +46,7 @@
                     <th>Jenjang</th>
                     <th>Fakultas</th>
                     <th>Tahun Lulus</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -101,7 +102,7 @@ $(document).ready(function() {
                 width: '20',
             },
             {
-                targets: [1,4,6],
+                targets: [1,4,6,7],
                 width: '70',
                 className: 'dt-center',
             },
@@ -117,7 +118,15 @@ $(document).ready(function() {
                     var n = d.getFullYear();
                     if ( aData[6] <= n-3 )
                     {
-                        $('td', nRow).css('background-color', 'Red');
+                        $('td', nRow).css('background-color', 'Orange');
+                    } else if (aData[7] == 'TH')
+                    {
+                        $('td', nRow).css('background-color', 'red');
+                        $('td', nRow).css('color', 'white');
+                        $('td', nRow).css('font-weight', 'bold');
+                    } else if (aData[7] == 'TU')
+                    {
+                        $('td', nRow).css('background-color', 'Yellow');
                     }
             },
            
