@@ -269,7 +269,55 @@ function reset_login(id){
 
 function reset_all_password()
 {
-    alert("Ngko sek lah...")
+    $('#modal_resetpass').modal('show'); 
+    $('.modal-title').text('Reset Password User'); 
+}
+
+function btnResetpass()
+{
+    $("#error_firstname").html('');
+    $("#error_lastname").html('');
+    $("#error_idfakultas").html('');
+    $("#error_username").html('');
+    $("#error_email").html('');
+    $("#error_password").html('');
+    $("#error_confirmpassword").html('');
+    $('#btnSave').text('saving...');
+    $('#btnSave').attr('disabled',true); 
+ 
+    // ajax adding data to database
+    $.ajax({
+        url : "<?php echo site_url('user/reset_massal')?>",
+        type: "POST",
+        data: $('#form-resetpass').serialize(),
+        dataType: "JSON",
+        success: function(data)
+        {
+            
+            if (data.hasil !== "sukses") {
+                $("#error_new_pass").html(data.hasil);
+            }
+ 
+            if(data.status) //if success close modal and reload ajax table
+            {
+                $('#modal_resetpass').modal('hide');
+                reload_table();
+            }
+ 
+            // $('#btnSave').text('Simpan'); //change button text
+            // $('#btnSave').attr('disabled',false); //set button enable 
+ 
+ 
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error reset password user');
+            // $('#btnSave').text('Simpan'); //change button text
+            // $('#btnSave').attr('disabled',false); //set button enable 
+ 
+        }
+    });
+    
 }
 
  
@@ -282,7 +330,7 @@ function reset_all_password()
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Program Studi/h3>
+                <h3 class="modal-title">Form Program Studi</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form-user" class="form-horizontal">
@@ -342,6 +390,38 @@ function reset_all_password()
             </div>
             <div class="modal-footer">
                 <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Kembali</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Bootstrap modal -->
+
+<!-- Bootstrap modal -->
+<div class="modal fade" id="modal_resetpass" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Reset Password User</h3>
+            </div>
+            <div class="modal-body form">
+                <form action="#" id="form-resetpass" class="form-horizontal">
+                    <input type="hidden" value="" name="id"/> 
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Kata Sandi Baru</label>
+                            <div class="col-md-8">
+                                <input name="new_pass" placeholder="Kata Sandi Baru" class="form-control" type="text">
+                                <span class="text-danger" id="error_new_pass"></span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnResetpass" onclick="btnResetpass()" class="btn btn-primary">Simpan</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Kembali</button>
             </div>
         </div><!-- /.modal-content -->

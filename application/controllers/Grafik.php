@@ -22,7 +22,7 @@ class Grafik extends MY_Controller {
 		$totalterima = (int)$this->penerimaan->count_all($tahunakademik);
 		$kuotapenerimaan = $this->laporan->totaldayatampung()->dayatampung;
 		$totalpendaftar = $this->pendaftar->count_all($tahunakademik);
-		$list = $this->grafik->get_penerimaan();
+		$list = $this->grafik->get_penerimaan(); 
 		$jumlahsuku = $this->grafik->get_jumlah_suku();
 		$jumlahtahunlulus = $this->grafik->get_jumlah_tahunlulus();
 		$jumlahjenjangslta = $this->grafik->get_jumlah_jenjangslta();

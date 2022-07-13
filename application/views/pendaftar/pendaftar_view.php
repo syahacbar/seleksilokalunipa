@@ -11,7 +11,7 @@
     div.dataTables_wrapper {
         margin: 0 auto;
     }
-    tr { height: 10px;  } 
+    tr { height: 10px;  }  
     table{
     table-layout: fixed; 
     word-wrap:break-word;

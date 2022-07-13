@@ -14,7 +14,7 @@ class Grafik_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('v_rekap');
         $query = $this->db->get();
-        return $query->result();
+        return $query->result(); 
     }
 
     public function get_jumlah_suku()

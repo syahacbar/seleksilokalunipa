@@ -10,7 +10,7 @@ class Laporan extends MY_Controller {
         $this->load->model('Pengaturan_model','pengaturan');
         $this->load->model('Prodi_model','prodi');
     }
-
+ 
     public function laporanexcel()
 	{
         $tahunakademik = $this->pengaturan->gettahunakademik()->nilai;

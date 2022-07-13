@@ -58,7 +58,7 @@
             <div class="box-header with-border">
               <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">Peminatan Per Program Studi</h3>
+              <h3 class="box-title">Peminatan Per Program Studi Pilihan 1</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -67,11 +67,53 @@
               </div>
             </div>
             <div class="box-body">
-              <div id ="mygraph1"></div>
+              <div id ="mygraph7"></div>
             </div>
           </div>
         </div>
-</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Peminatan Per Program Studi Pilihan 2</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div id ="mygraph8"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Peminatan Per Program Studi Pilihan 3</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div id ="mygraph9"></div>
+            </div>
+          </div>
+        </div>
+    </div>
 
 
     <div class="row">
@@ -169,7 +211,10 @@
 <script>
 
 
- var chart1; 
+ var chart7; 
+ var chart8; 
+ var chart9; 
+
  var chart2;
  var chart3;
  var chart4;
@@ -177,17 +222,17 @@
  
         $(document).ready(function() {
           /* GRAFIK PEMINATAN PER PRODI */
-              chart1 = new Highcharts.Chart(
+              chart7 = new Highcharts.Chart(
               {
                   
                  chart: {
-                    renderTo: 'mygraph1',
+                    renderTo: 'mygraph7',
                     plotBackgroundColor: null,
                     plotBorderWidth: null,
                     plotShadow: false
                  },   
                  title: {
-                    text: 'Peminatan Berdasarkan Pilihan Program Studi'
+                    text: 'Peminatan Berdasarkan Pilihan Program Studi Pilihan 1'
                  },
                  tooltip: {
                     formatter: function() {
@@ -220,10 +265,122 @@
                     <?php
                         foreach($list as $row) {
                           $prodiname = $row->namaprodi;
-                          $peminat = $row->peminat;
+                          $peminat1 = $row->peminat1;
                           ?>
                             [ 
-                                '<?php echo $prodiname ?>', <?php echo $peminat; ?>
+                                '<?php echo $prodiname ?>', <?php echo $peminat1; ?>
+                            ],
+                            <?php
+                        }
+                        ?>
+             
+                    ]
+                }]
+              });
+
+              chart8 = new Highcharts.Chart(
+              {
+                  
+                 chart: {
+                    renderTo: 'mygraph8',
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                 },   
+                 title: {
+                    text: 'Peminatan Berdasarkan Pilihan Program Studi Pilihan 2'
+                 },
+                 tooltip: {
+                    formatter: function() {
+                        return '<b>'+
+                        this.point.name +'</b>: '+ Highcharts.numberFormat(this.percentage, 2) +' % ';
+                    }
+                 },
+                 
+                
+                 plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: 'green',
+                            formatter: function() 
+                            {
+                                return '<b>' + this.point.name + '</b>: ' + Highcharts.numberFormat(this.percentage, 2) +' % ';
+                            }
+                        }
+                    }
+                 },
+       
+                    series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: [
+                    <?php
+                        foreach($list as $row) {
+                          $prodiname = $row->namaprodi;
+                          $peminat2 = $row->peminat2;
+                          ?>
+                            [ 
+                                '<?php echo $prodiname ?>', <?php echo $peminat2; ?>
+                            ],
+                            <?php
+                        }
+                        ?>
+             
+                    ]
+                }]
+              });
+
+              chart9 = new Highcharts.Chart(
+              {
+                  
+                 chart: {
+                    renderTo: 'mygraph9',
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                 },   
+                 title: {
+                    text: 'Peminatan Berdasarkan Pilihan Program Studi Pilihan 3'
+                 },
+                 tooltip: {
+                    formatter: function() {
+                        return '<b>'+
+                        this.point.name +'</b>: '+ Highcharts.numberFormat(this.percentage, 2) +' % ';
+                    }
+                 },
+                 
+                
+                 plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: 'green',
+                            formatter: function() 
+                            {
+                                return '<b>' + this.point.name + '</b>: ' + Highcharts.numberFormat(this.percentage, 2) +' % ';
+                            }
+                        }
+                    }
+                 },
+       
+                    series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: [
+                    <?php
+                        foreach($list as $row) {
+                          $prodiname = $row->namaprodi;
+                          $peminat3 = $row->peminat3;
+                          ?>
+                            [ 
+                                '<?php echo $prodiname ?>', <?php echo $peminat3; ?>
                             ],
                             <?php
                         }
