@@ -206,7 +206,6 @@ $(document).ready(function() {
                     if ( aData[10] <= n-4 )
                     {
                         $('td', nRow).css('background-color', 'Orange');
-                        $('td', 
                     } else if (aData[11] == 'TH')
                     {
                         $('td', nRow).css('background-color', 'red');
@@ -216,7 +215,7 @@ $(document).ready(function() {
                     {
                         $('td', nRow).css('background-color', 'Yellow');
                     }
-            }
+            },
          
         });
         
