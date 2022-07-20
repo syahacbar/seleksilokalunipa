@@ -78,7 +78,7 @@
                     <th style="width: 180;">Nama Pendaftar</th>
                     <th style="width: 30;">Pil. Ke</th>
                     <th style="width: 50;">Suku</th>
-                    <th style="width: 20;">Nilai Verbal</th>
+                    <th style="width: 20;">Nilai Figural</th>
                     <th style="width: 20;">Nilai Numerik</th>
                     <th style="width: 20;">Nilai TPA</th>
                     <th style="width: 20;">Nilai TPS</th>
