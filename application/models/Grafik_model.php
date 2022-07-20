@@ -10,10 +10,13 @@ class Grafik_model extends CI_Model {
 
     public function get_penerimaan()
     {
+        $tahunakademik = $this->pengaturan->gettahunakademik()->nilai;
+        $query = $this->db->query("SELECT * FROM v_rekap WHERE tahunakademik='$tahunakademik'");
          
-        $this->db->select('*');
-        $this->db->from('v_rekap');
-        $query = $this->db->get();
+        // $this->db->select('*');
+        // $this->db->from('v_rekap');
+        // $this->db->where('tahunakademik',$this->pengaturan->gettahunakademik()->nilai);
+        //$query = $this->db->get();
         return $query->result(); 
     }
 
