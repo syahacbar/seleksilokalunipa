@@ -15,7 +15,7 @@ class Grafik extends MY_Controller {
         $this->load->model('Penerimaan_model','penerimaan');
     }
 
-	public function index()
+	public function index() 
 	{
         $tahunakademik = $this->pengaturan->gettahunakademik()->nilai;
         $totalkosong = ((int)$this->laporan->totaldayatampung()->dayatampung)-((int)$this->penerimaan->count_all($tahunakademik));

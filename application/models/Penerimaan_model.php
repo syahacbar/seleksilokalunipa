@@ -78,8 +78,10 @@ class Penerimaan_model extends CI_Model {
 
     function count_filter_prodi($prodi)
     {
+        $tahunakademik = $this->pengaturan->gettahunakademik()->nilai;
         $this->db->from($this->table);
         $this->db->where('namaprodi', $prodi);
+        $this->db->where('tahunakademik', $tahunakademik);
         $query = $this->db->get();
         return $query->num_rows();
     }

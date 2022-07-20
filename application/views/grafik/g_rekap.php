@@ -357,7 +357,7 @@
                  plotOptions: {
                     pie: {
                         allowPointSelect: true,
-                        cursor: 'pointer',
+                        cursor: 'pointer', 
                         dataLabels: {
                             enabled: true,
                             color: '#000000',
