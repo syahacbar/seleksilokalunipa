@@ -86,6 +86,7 @@ class Pendaftar extends MY_Controller {
                         'tahunakademik' => $thn.'/'.$thnx,
                     )); 
     }
+    
     public function ajax_add()
     {
         if ($this->input->post('namapendaftar') == '') {

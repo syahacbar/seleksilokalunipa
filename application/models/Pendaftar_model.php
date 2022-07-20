@@ -119,7 +119,7 @@ class Pendaftar_model extends CI_Model {
     }
 
     public function dd_prodi()
-    {
+    { 
 		$this->db->order_by('namaprodi', 'asc');
 		$result = $this->db->get($this->table);
 			
