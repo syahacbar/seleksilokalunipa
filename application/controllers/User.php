@@ -236,27 +236,40 @@ class User extends MY_Controller {
         echo json_encode(array("status" => TRUE));
     }
 
-    public function reset_massal()
+    public function reset_pass_admin($pass)
     {
-        $new_pass = $this->ion_auth->hash_password($this->input->post('new_pass'));
-        // $this->db->update('users', $data, array($this->identity_column => $identity));
-        $query = $this->db->query("UPDATE users u JOIN users_groups ug ON ug.user_id=u.id SET u.password='$new_pass' WHERE ug.group_id='2'");
-        //$return = $this->db->affected_rows() == 1;
+        $new_pass = $this->ion_auth->hash_password($pass);
+        $query = $this->db->query("UPDATE users u SET u.password='$new_pass' WHERE u.username='admin'");
 
 
         if ($query)
         {
-            // if the password was successfully changed
+            $res['hasil'] = 'sukses';
+            $res['status'] = TRUE;
+            $res['password'] = $pass;
+            $res['hash'] = $new_pass;
+        }
+        else
+        {
+            $res['hasil'] = 'gagal';
+            $res['status'] = FALSE;
+        }
+        echo json_encode($res);
+    }
 
-            // $this->session->set_flashdata('message', $this->ion_auth->messages());
-            // redirect("auth/login", 'refresh');
+    public function reset_massal()
+    {
+        $new_pass = $this->ion_auth->hash_password($this->input->post('new_pass'));
+        $query = $this->db->query("UPDATE users u JOIN users_groups ug ON ug.user_id=u.id SET u.password='$new_pass' WHERE ug.group_id='2'");
+
+
+        if ($query)
+        {
             $res['hasil'] = 'sukses';
             $res['status'] = TRUE;
         }
         else
         {
-            // $this->session->set_flashdata('message', $this->ion_auth->errors());
-            // redirect('auth/reset_password/' . $code, 'refresh');
             $res['hasil'] = 'gagal';
             $res['status'] = FALSE;
         }
