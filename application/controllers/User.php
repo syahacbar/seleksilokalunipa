@@ -236,27 +236,7 @@ class User extends MY_Controller {
         echo json_encode(array("status" => TRUE));
     }
 
-    public function reset_pass_admin($pass)
-    {
-        $new_pass = $this->ion_auth->hash_password($pass);
-        $query = $this->db->query("UPDATE users u SET u.password='$new_pass' WHERE u.username='admin'");
-
-
-        if ($query)
-        {
-            $res['hasil'] = 'sukses';
-            $res['status'] = TRUE;
-            $res['password'] = $pass;
-            $res['hash'] = $new_pass;
-        }
-        else
-        {
-            $res['hasil'] = 'gagal';
-            $res['status'] = FALSE;
-        }
-        echo json_encode($res);
-    }
-
+    
     public function reset_massal()
     {
         $new_pass = $this->ion_auth->hash_password($this->input->post('new_pass'));
